@@ -1,0 +1,74 @@
+@server=http://localhost:4004
+@username=Sathwik
+@password=
+
+
+### employee
+# @name employee_GET
+GET {{server}}/odata/v4/employee/employee
+Authorization: Basic {{username}}:{{password}}
+
+
+### employee
+# @name employee_POST
+POST {{server}}/odata/v4/employee/employee
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "12888699-ba77-41ec-ab5c-6d025e3340c8",
+  "nameFirst": "Sathwik",
+  "nameMiddle": "",
+  "nameLast": "Koleti",
+  "nameInitial": "nameInitial-12888699",
+  "Gender": "M",
+  "Language": "9",
+  "phoneNumber": "phoneNumber-12888699",
+  "Email": "Email-12888699",
+  "loginName": "ame-12888699",
+  "Currency": {
+    "code": "USD"
+  },
+  "salaryAmount": 40000,
+  "accountNumber": "tNumber-12888699",
+  "bankId": "12888699",
+  "bankName": "bankName-12888699"
+}
+
+
+### employee
+# @name employee_PATCH
+PATCH {{server}}/odata/v4/employee/employee/12888699-ba77-40ec-ab5c-6d025e3340c8
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "02BD2137-0890-1EEA-A6C2-BB55C197C7FB",
+      "nameFirst": "Faranco",
+      "nameMiddle": "Richard",
+      "nameLast": "Fall",
+      "nameInitial": null,
+      "Gender": "M",
+      "Language": "E",
+      "phoneNumber": null,
+      "Email": "franco.fall@itelo.info",
+      "loginName": "FAaLLF",
+      "Currency_code": "USD",
+      "salaryAmount": 85962,
+      "accountNumber": "8877665544",
+      "bankId": "12100",
+      "bankName": "My Bank of San Francisco"
+}
+
+
+### employee
+# @name employee_DELETE
+DELETE {{server}}/odata/v4/employee/employee/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### Currencies
+# @name Currencies_GET
+GET {{server}}/odata/v4/employee/Currencies
+Authorization: Basic {{username}}:{{password}}
