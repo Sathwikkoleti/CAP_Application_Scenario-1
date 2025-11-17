@@ -1,4 +1,5 @@
 const cds = require('@sap/cds');
+const { SELECT } = require('@sap/cds/lib/ql/cds-ql');
 
 
 module.exports = cds.service.impl(function () {
@@ -26,21 +27,14 @@ module.exports = cds.service.impl(function () {
     }),
     this.before('DELETE',employee,async req=>{
         const {ID} = req.params[0]
-        // console.log(req.params[0])
-        const {nameFirst} = req.data
         console.log(ID)
-        const query = cds.ql
-        console.log("Delete performed")
-        const first = await cds.run(
-            `Delete from table ${employee} where ID=${ID} and ${nameFirst.nameFirst} not like "S%"` 
-        )
-        
-        // if(first.charAt(0) ==='S'){
-        //     console.log("Delete not possible")
-        //     return req.error("404","cannot be entered")
-        // }
-        // else{
-        //     console.log("Delete operation is Successful")
-        // }
+        const query = await SELECT.one.from(employee).where({ID: ID})
+
+        if(!query){
+            return req.error(404,"Enter the Correct ID")
+        }
+        if(query.nameFirst.charAt(0) == 'S'){
+            return req.error(400,"The name which starts with 'S' cannot be deleted.")
+        }
     })
 })

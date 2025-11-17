@@ -63,7 +63,8 @@ Authorization: Basic {{username}}:{{password}}
 
 ### employee
 # @name employee_DELETE
-DELETE {{server}}/odata/v4/employee/employee/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+# DELETE {{server}}/odata/v4/employee/employee(ID='02BD2137-0890-1EEA-A6C2-BB55C19787FB')
+DELETE {{server}}/odata/v4/employee/employee/12888699-ba77-41ec-ab5c-6d025e3340c8
 Content-Type: application/json
 Authorization: Basic {{username}}:{{password}}
 
